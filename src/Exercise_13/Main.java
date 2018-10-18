@@ -15,16 +15,18 @@ public class Main {
         fName = scan.nextLine();
         System.out.println("Enter the student's last name: ");
         lName = scan.nextLine();
-
+        int num = 1;
         for(int i = 0; i < 5; i++){
-            int num = 1;
+
             double test;
             System.out.println("Enter test score " + num +"" );
             test = scan.nextDouble();
             scores[i] = test;
+            num++;
         }
 
         Tests sTests = new Tests(fName,lName,scores);
+        System.out.println(sTests.calculateTestAvg());
     }
 
 }
