@@ -19,22 +19,35 @@ public class Tests {
 
     //Tests class private variables...
     private String fName, lName, lGrade;
-    private double [] tScores = new double[5];
-    private double avg, cAvg;
+    private double [] tScores; //= new double[5];
+    private double avg;
+
+
+
+    /**
+     * These variables ar for the entire students' class,
+     * all objects of the Tests class..
+     * */
+    static private double classAvg;
+    static private String classGrade;
+    static private int classObjects;
 
     /**Test class constructor that sets the student's
-     *  first name , last name, and 5 test scores...
+     *  first name , last name, 5 test scores, and the
+     *  number of Tests class objects instantiated...
      *  */
     public Tests(String fName, String lName, double[] tScores){
         this.fName = fName;
         this.lName = lName;
         this.tScores = tScores;
-        //System.out.println(fName + "*******" + lName + "******" + Arrays.toString(tScores));
+        setClassObjects(getClassObjects() + 1);
+
+        //System.out.println(fName + "*******" + lName + "******" + Arrays.toString(tScores) + "***********" + getClassObjects());
     }
 
 
     /**
-     * Getters and Setters
+     * Getters and Setters for the Tests class individual objects variables...
      * */
     //The getter method to return the value of the student's first name...
     public String getfName() {
@@ -76,13 +89,34 @@ public class Tests {
     public void setAvg(double avg) {
         this.avg = avg;
     }
-    //The getter method to return the value of the students class average...
-    public double getcAvg() {
-        return cAvg;
+
+
+    /**
+     * Getters and Setters for the entire Tests class variables...
+     * */
+    //This getter method to return the value of the entire Tests class's test average...
+    public static double getClassAvg() {
+        return classAvg;
     }
-    //The setter method to set the value of the students class average...
-    public void setcAvg(double cAvg) {
-        this.cAvg = cAvg;
+    //The setter method to set the value of the entire Tests class's test average...
+    public static void setClassAvg(double classAvg) {
+        Tests.classAvg = classAvg;
+    }
+    //This getter method to return the value of the entire Tests class's letter grade...
+    public static String getClassGrade() {
+        return classGrade;
+    }
+    //The setter method to set the value of the entire Tests class's letter grade...
+    public static void setClassGrade(String classGrade) {
+        Tests.classGrade = classGrade;
+    }
+    //This getter method to return the value of the entire Tests class's objects instantiated...
+    public static int getClassObjects() {
+        return classObjects;
+    }
+    //The setter method to set the value of the entire Tests class's objects instantiated...
+    public static void setClassObjects(int classObjects) {
+        Tests.classObjects = classObjects;
     }
 
     /**
@@ -97,9 +131,12 @@ public class Tests {
      * divided by the number of elements inside of the scores
      * double array using the scores.length method. The students
      * test average is set to equal the value of the gradeAve
-     * double variable using the setAvg() method, then the
-     * calculateTestAvg() method returns the value of the getAvg()
-     * method...
+     * double variable using the setAvg() method, the student's
+     * test average is added to the static private classAvg
+     * variable using the setClassAvg() method passes in the
+     * return value of the getClassAvg() method plus the return
+     * value of the getAvg() method. Finally the calculateTestAvg()
+     * method returns the value of the getAvg() method...
      * */
     public double calculateTestAvg(){
         double[] scores = gettScores();
@@ -110,6 +147,7 @@ public class Tests {
         }
         gradeAvg = gradeAvg / scores.length;
         setAvg(gradeAvg);
+        setClassAvg(getClassAvg() + getAvg());
         return getAvg();
     }
 
