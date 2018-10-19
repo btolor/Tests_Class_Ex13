@@ -113,6 +113,64 @@ public class Tests {
         return getAvg();
     }
 
+    /**
+     * The modifyTestGrade() method is used to modify an individual test score
+     * of the student. The method takes in two parameters, index and newGrade.
+     * The index int variable is used to select the index of the element in the
+     * test scores array and the newGrade double variable is used to replace the
+     * value of the selected index's element value. A scores double[] array
+     * variable is assigned the return value of the gettScores() method and the
+     * scores[] index - 1 element is assigned the newScore double variable. The
+     * settScores() method sets the tScores[] private double array to equal the
+     * score[] double array and the method returns the return value of the
+     * gettScores() method...
+     * */
+    public double[] modifyTestGrade(int index, double newScore){
+        double [] scores = gettScores();
+        scores[index - 1] = newScore;
+        settScores(scores);
+        return gettScores();
+    }
+
+
+
+    /**
+     * The calculateLetterGrade() method calculates the letter grade
+     * of the students test average using if and else if statements.
+     * The method uses a double variable named grade that is assigned
+     * the return value of the getAvg() method. If the grade double
+     * variable value is greater than or equal to 90 the setlGrade()
+     * setter method sets the lGrade private string variable value to
+     * "A". Else if the grade double variable value is less than or equal
+     * to 89 and greater than or equal to 80 the setlGrade() setter
+     * method sets the lGrade private string variable value to "B". Else
+     * if the grade double variable value is less than or equal to 79
+     * and greater than or equal to 70 the setlGrade() setter method sets
+     * the lGrade private string variable value to "C". Else if the grade
+     * double variable value is less than or equal to 69 and greater than
+     * or equal to 60 the setlGrade() setter method sets the lGrade
+     * private string variable value to "D". Else if the grade double
+     * variable value is less than 60 the setlGrade() setter method sets
+     * the lGrade private string variable value to "F". Once the if/else
+     * statements are executed the method's return statement returns the
+     * return value of the getlGrade() method
+     * */
+    public String calculateLetterGrade(){
+        double grade = getAvg();
+        if(grade >= 90){
+            setlGrade("A");
+        }else if (grade <= 89 && grade >= 80){
+            setlGrade("B");
+        }else if (grade <= 79 && grade >= 70){
+            setlGrade("C");
+        }else if (grade <= 69 && grade >= 60){
+            setlGrade("D");
+        }else if (grade <= 59){
+            setlGrade("F");
+        }
+        return getlGrade();
+    }
+
 
 
 }
