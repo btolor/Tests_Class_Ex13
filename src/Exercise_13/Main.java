@@ -2,6 +2,7 @@ package Exercise_13;
 
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Vector;
 
 public class Main {
 
@@ -50,6 +51,17 @@ public class Main {
         sTests.modifyTestGrade(index,newGrade);
         System.out.println(Arrays.toString(sTests.gettScores()) + " is now ");*/
 
+       /**
+        * The instances of Vector class vector object lets me store an
+        * array of Tests class objects instantiated with an Tests class
+        * string[] array. Each Tests class object is added to the vector
+        * using the java.lang Arrays.toString method that passes as a
+        * parameter the Tests class's toArray() method...
+        * */
+        Vector students = new Vector();
+        students.add(Arrays.toString(sTests.toArray()));
+        students.add(Arrays.toString(bTests.toArray()));
+        System.out.println(students);
 
     }
 

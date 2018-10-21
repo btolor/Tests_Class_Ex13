@@ -22,6 +22,15 @@ public class Tests {
     private double [] tScores; //= new double[5];
     private double avg;
 
+    public String[] getStudentInfo() {
+        return studentInfo;
+    }
+
+    public void setStudentInfo(String[] studentInfo) {
+        this.studentInfo = studentInfo;
+    }
+
+    private String[] studentInfo = new String[9];
 
 
     /**
@@ -31,6 +40,7 @@ public class Tests {
     static private double classAvg;
     static private String classGrade;
     static private int classObjects;
+
 
     /**Test class constructor that sets the student's
      *  first name , last name, 5 test scores, and the
@@ -118,6 +128,14 @@ public class Tests {
     public static void setClassObjects(int classObjects) {
         Tests.classObjects = classObjects;
     }
+
+
+
+
+
+
+
+
 
     /**
      * The calculateTestAvg() method calculates the average of
@@ -207,6 +225,32 @@ public class Tests {
             setlGrade("F");
         }
         return getlGrade();
+    }
+
+
+    /**
+     * The toArray() method returns the return value of the
+     * getStudentInfo() method which is a String[] array. The
+     * method uses a String[] array name student which element
+     * capascity is set to only five elements. The student[]
+     * array elements are set in order to be the first name,
+     * last name, 5 test scores, test average, and the letter
+     * grade. The setStudentInfo() method is called with the
+     * student[] string array passed in its parameters and the
+     * toArray() method returns the return value of the
+     * getStudentInfo() method...
+     * */
+    public String[] toArray(){
+        String[] student = new String[5];
+        student[0] = getfName();
+        student[1] = getlName();
+        student[2] = Arrays.toString(gettScores());
+        student[3] = Double.toString(getAvg());
+        student[4] = getlGrade();
+        setStudentInfo(student);
+        System.out.println(Arrays.toString(getStudentInfo()));
+        return getStudentInfo();
+
     }
 
 
