@@ -245,9 +245,7 @@ public class Tests {
         String student;
         student = getfName() + "    " + getlName() + "    " + Arrays.toString(gettScores()) + "    " + Double.toString(getAvg()) + "    " + getlGrade();
         setStudentInfo(student);
-        System.out.println(getStudentInfo());
         return getStudentInfo();
-
     }
 
 
