@@ -22,15 +22,16 @@ public class Tests {
     private double [] tScores; //= new double[5];
     private double avg;
 
-    public String[] getStudentInfo() {
+
+    public String getStudentInfo() {
         return studentInfo;
     }
 
-    public void setStudentInfo(String[] studentInfo) {
+    public void setStudentInfo(String studentInfo) {
         this.studentInfo = studentInfo;
     }
 
-    private String[] studentInfo = new String[9];
+    private String studentInfo  ;
 
 
     /**
@@ -240,15 +241,11 @@ public class Tests {
      * toArray() method returns the return value of the
      * getStudentInfo() method...
      * */
-    public String[] toArray(){
-        String[] student = new String[5];
-        student[0] = getfName();
-        student[1] = getlName();
-        student[2] = Arrays.toString(gettScores());
-        student[3] = Double.toString(getAvg());
-        student[4] = getlGrade();
+    public String toString(){
+        String student;
+        student = getfName() + "    " + getlName() + "    " + Arrays.toString(gettScores()) + "    " + Double.toString(getAvg()) + "    " + getlGrade();
         setStudentInfo(student);
-        System.out.println(Arrays.toString(getStudentInfo()));
+        System.out.println(getStudentInfo());
         return getStudentInfo();
 
     }

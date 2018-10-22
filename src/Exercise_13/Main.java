@@ -59,8 +59,8 @@ public class Main {
         * parameter the Tests class's toArray() method...
         * */
         Vector students = new Vector();
-        students.add(Arrays.toString(sTests.toArray()));
-        students.add(Arrays.toString(bTests.toArray()));
+        students.add(sTests.toString());
+        students.add(bTests.toString());
         System.out.println(students);
 
     }
